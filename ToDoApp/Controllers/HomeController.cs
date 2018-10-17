@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
+using ToDoApp.Models;
 
 namespace ToDoApp.Controllers
 {
@@ -18,5 +20,36 @@ namespace ToDoApp.Controllers
             return View(model);
 
         }
+
+        public ViewResult Details(int id)
+        {
+           var model =repo.GetById(id);
+            return View(model);
+        }
+
+        public object Create()
+        {
+            return View();
+        }
+
+        [AcceptVerbs("POST")]
+        public IActionResult Create(ToDo todo)
+        {
+            repo.Create(todo);
+
+            return RedirectToAction("Index");
+        }
+
+        public ViewResult Delete(int id)
+        {
+            var model = repo.GetById(id);
+            return View(model);
+        }
+
+
+
+
+
+
     }
 }

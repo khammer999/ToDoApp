@@ -9,5 +9,7 @@ namespace ToDoApp
     public interface IToDoRepository
     {
         IEnumerable<ToDo> GetAll();
+        ToDo GetById(int id);
+        void Create(ToDo userToDoData);
     }
 }

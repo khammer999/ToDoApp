@@ -13,7 +13,7 @@
 @foreach (var todo in Model)
 {
     <div>
-        @todo.Id - @todo.Description
+        <a href="/Home/Details/@todo.Id"> @todo.Id - @todo.Description</a>
     </div>
 
 }
