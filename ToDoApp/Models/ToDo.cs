@@ -12,5 +12,7 @@ namespace ToDoApp.Models
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
 
-    }
+        public List<Category> ToDoCategories{ get; set; }
+
+}
 }

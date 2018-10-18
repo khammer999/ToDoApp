@@ -11,5 +11,6 @@ namespace ToDoApp
         IEnumerable<ToDo> GetAll();
         ToDo GetById(int id);
         void Create(ToDo userToDoData);
+        void Delete(ToDo todo);
     }
 }

@@ -9,6 +9,28 @@ namespace ToDoApp.Models
     public class Context:DbContext
     {
         public DbSet<ToDo> ToDos { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ToDoCategory> ToDoCategories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(
+                new Category() { Name = "Home" },
+                new Category() { Name = "Business" }
+                );
+            modelBuilder.Entity<ToDo>().HasData(
+                new ToDo() { Id = 1, Description = "Learn To Use this ToDo App", DueDate = DateTime.Now }
+                );
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+             
+
+
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
